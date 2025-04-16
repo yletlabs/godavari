@@ -156,7 +156,7 @@
 
         async function fetchServices() {
             try {
-                const response = await await fetch(`/api/resource/Services?fields=["*"]`);
+                const response = await await fetch(`/api/method/godavari.api.contact.get_services`);
                 const services = await response.json();
                 const serviceList = document.getElementById('service-list');
                 serviceList.innerHTML = '';
@@ -164,7 +164,7 @@
                 const serviceListFooter = document.getElementById('service-list-footer');
                 serviceListFooter.innerHTML = '';
 
-                services.data.forEach(service => {
+                services.message.forEach(service => {
                     const serviceItem = document.createElement('div');
                     serviceItem.className = '';
                     serviceItem.innerHTML = `

@@ -232,84 +232,21 @@ Godavari Logistics - Your Growth Partner
     <div class="px-6 md:px-12 lg:px-40 py-10">
         <!-- First Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+
+            {%- for row in services -%}
             <!-- Service Card 1 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
+            <div data-url="/services/{{ row.url }}" class="relative bg-white rounded-md overflow-hidden clickable-li">
                 <div class="absolute left-0 top-0 bg-services-h bg-center bg-cover rounded-t-md"></div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
+                <img class="mx-auto h-[200px]" style="height: 200px;" src="{{ row.image }}" alt="" />
                 <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">Warehousing and
-                        Storage</h3>
-                    <p class="text-textGray">Efficient and secure storage is the foundation of logistics
-                        operations. Our advanced warehousing solutions are designed to accommodate a wide range
-                        of business needs with precision and care.</p>
+                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">{{ row.title }}</h3>
+                    <p class="text-textGray">{{ row.description }}</p>
                 </div>
             </div>
+            {%- endfor -%}
 
-            <!-- Service Card 2 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
-                <div class="absolute left-0 top-0 bg-services-h bg-center bg-cover rounded-t-md"></div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
-                <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">Transportation and
-                        Distribution</h3>
-                    <p class="text-textGray">Seamless transportation and efficient distribution are essential to
-                        meeting customer demands and ensuring a smooth supply chain flow.</p>
-                </div>
-            </div>
-
-            <!-- Service Card 3 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
-                <div class="absolute left-0 top-0  bg-services-h bg-center bg-cover rounded-t-md"></div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
-                <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">E-Commerce
-                        Fulfillment
-                    </h3>
-                    <p class="text-textGray">Our tailored e-commerce fulfillment services help online businesses
-                        streamline operations and enhance customer satisfaction.</p>
-                </div>
-            </div>
         </div>
 
-        <!-- Second Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Service Card 4 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
-                <div class="absolute left-0 top-0  bg-services-h bg-center bg-cover rounded-t-md"></div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
-                <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">Supply Chain Management</h3>
-                    <p class="text-textGray">Our end-to-end supply chain solutions simplify complex operations,
-                        ensuring smooth and efficient delivery from production to the final destination.</p>
-                </div>
-            </div>
-
-            <!-- Service Card 5 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
-                <div class="absolute left-0 top-0  bg-services-h bg-center bg-cover rounded-t-md"></div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
-                <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">Freight Forwarding
-                    </h3>
-                    <p class="text-textGray">Simplify your international shipping with our reliable freight
-                        forwarding services, designed to handle the complexities of global logistics.</p>
-                </div>
-            </div>
-
-            <!-- Service Card 6 -->
-            <div class="relative bg-white rounded-md overflow-hidden">
-                <div class="absolute left-0 top-0 bg-services-h bg-center bg-cover rounded-t-md">
-                </div>
-                <img class="mx-auto h-[200px]" src="/assets/images/warehousing.png" alt="" />
-                <div class="p-6 relative">
-                    <h3 class="text-white text-[20px] font-archivo font-medium mb-4 -mt-14">Value-Added Services
-                    </h3>
-                    <p class="text-textGray">Our value-added services enhance your logistics operations by
-                        offering customized solutions tailored to your unique requirements.</p>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -397,6 +334,22 @@ Godavari Logistics - Your Growth Partner
 </section>
 
 <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all list items with the class 'clickable-li'
+        const listItems = document.querySelectorAll(".clickable-li");
+
+        // Add a click event listener to each list item
+        listItems.forEach(function (div) {
+            div.addEventListener("click", function () {
+                // Get the URL from the data-url attribute
+                const url = div.getAttribute("data-url");
+                // Navigate to the URL (or open in a new window)
+                window.location.href = url; // Or use window.open(url, "_blank");
+            });
+        });
+    });
+
     document.getElementById("inquiry_form").addEventListener("submit", function (event) {
         event.preventDefault();
 

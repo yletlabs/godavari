@@ -2,10 +2,14 @@ import frappe
 from frappe.utils import now_datetime
 
 @frappe.whitelist(allow_guest=True)
+def get_services():
+    return frappe.get_all("Services", fields=["title", "url", "image", "description"])
+
+
+@frappe.whitelist(allow_guest=True)
 def submit_form():
     # Get form data
     data = frappe.form_dict
-    print(data)
 
     # Create a new Contact document
     contact = frappe.get_doc(

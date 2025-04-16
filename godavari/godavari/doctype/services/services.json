@@ -8,7 +8,8 @@
   "title",
   "url",
   "description",
-  "image"
+  "image",
+  "service_item"
  ],
  "fields": [
   {
@@ -39,11 +40,17 @@
    "label": "Url",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Table",
+   "label": "Service Item",
+   "options": "Service Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-23 23:05:30.938220",
+ "modified": "2025-04-09 23:13:10.833468",
  "modified_by": "Administrator",
  "module": "godavari",
  "name": "Services",
