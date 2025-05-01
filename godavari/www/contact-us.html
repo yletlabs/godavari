@@ -52,7 +52,7 @@ Godavari Logistics - Your Growth Partner
                 <input type="email" placeholder="Email" name="email" id="email"
                     class="w-full p-3 bg-[#fafafa] border border-[#d7d7d7] rounded text-textGray" required />
                 <input type="tel" placeholder="Phone number" name="phone_number" id="phone_number"
-                    class="w-full p-3 bg-[#fafafa] border border-[#d7d7d7] rounded text-textGray" required />
+                    class="w-full p-3 bg-[#fafafa] border border-[#d7d7d7] rounded text-textGray" />
 
                 <!-- <div class="relative">
                     <select
@@ -88,14 +88,14 @@ Godavari Logistics - Your Growth Partner
             </div>
 
             <div class="flex items-start space-x-3 mt-5">
-                <img src="/assets/images/phone.png" alt="">
+                <img src="/assets/godavari/images/phone.png" alt="">
                 <p class="text-gray-700 text-[14px]">
                     xxxxxxxxxxxx
                 </p>
             </div>
 
             <div class="flex items-start space-x-3 mt-5">
-                <img src="/assets/images/email.png" alt="">
+                <img src="/assets/godavari/images/email.png" alt="">
                 <p class="text-gray-700 text-[14px]">
                     Email
                 </p>
@@ -128,13 +128,13 @@ Godavari Logistics - Your Growth Partner
                 return
             }
 
-            if (!phoneRegex.test(phoneInput.value)) {
-                phoneInput.setCustomValidity('Please enter a valid phone.');
-                phoneInput.reportValidity(); // Show validation message
-                event.preventDefault(); // Prevent form submission
-            } else {
-                phoneInput.setCustomValidity(''); // Reset error message
-            }
+            // if (!phoneRegex.test(phoneInput.value)) {
+            //     phoneInput.setCustomValidity('Please enter a valid phone.');
+            //     phoneInput.reportValidity(); // Show validation message
+            //     event.preventDefault(); // Prevent form submission
+            // } else {
+            //     phoneInput.setCustomValidity(''); // Reset error message
+            // }
 
             let formData = {
                 first_name: document.getElementById("first_name").value,
